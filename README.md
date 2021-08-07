@@ -13,6 +13,7 @@ WOGAA-FE
 ## Steps to run
 - Install NodeJS [For Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04)
 - Install Yarn [For Ubuntu](https://www.linuxcloudvps.com/blog/how-to-install-yarn-on-ubuntu-16-04/)
-- run `yarn install` on the root directory of the program
+- run `yarn` on the root directory of the program
 - run `yarn start` to run the program
+- go to http://localhost:3000 on any modern web browser to see the program
 ---
