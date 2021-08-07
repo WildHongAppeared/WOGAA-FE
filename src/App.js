@@ -4,7 +4,7 @@ import './App.css'
 import logo from './smiley.png';
 
 
-const API_URL = "http://localhost:8080/api/v1/"
+const API_URL = process.env.REACT_APP_API_URL
 const initialState = {
   showButton: false, //flag to show Help us improve button 
   showRating: false, //flag to show rating scale
