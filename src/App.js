@@ -36,6 +36,7 @@ class App extends React.Component {
   }
 
   async setRating(rating){ //after selecting rating, send to API and keep track of created id for feedback form
+    console.log('@RATING - ', rating)
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -58,7 +59,7 @@ class App extends React.Component {
     for(var i = 1; i <= scoreMax; i++){
       if(i === 1){ //first number in rating scale has different render compared to other numbers
         toRender.push(
-          <button key={"number" + i} className={`rating-button first`} onClick={async () => { await this.setRating(i)}}>
+          <button key={"number" + i} className={`rating-button first`} value={i} onClick={async (e) => { await this.setRating(e.target.value)}}>
             {i}
           </button>
         )
@@ -66,14 +67,14 @@ class App extends React.Component {
       }
       if(i === scoreMax){ //last number in rating scale has different render compared to other numbers
         toRender.push(
-          <button key={"number" + i} className={`rating-button last`} onClick={async () => { await this.setRating(i)}}>
+          <button key={"number" + i} className={`rating-button last`} value={i} onClick={async (e) => { await this.setRating(e.target.value)}}>
             {i}
           </button>
         )
         continue
       }
       toRender.push(
-        <button key={"number" + i} className={`rating-button`} onClick={async () => { await this.setRating(i)}}>
+        <button key={"number" + i} className={`rating-button`} value={i} onClick={async (e) => { await this.setRating(e.target.value)}}>
           {i}
         </button>
       )
