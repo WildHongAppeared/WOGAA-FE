@@ -1,0 +1,290 @@
+.overlay {
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+  z-index:1000;
+  min-height: 100%;
+}
+
+.img {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.hover-button {
+  height: 5%;
+  width: 10%;
+  color: white;
+  background-color: darkslategray;
+  border-radius:20px;
+  border: 1px solid black;
+  position:absolute; 
+  left:5px;
+  bottom:10px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background-color: lightgray;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  position:absolute; 
+  left:5px;
+  bottom:10px;
+}
+
+.cancel {
+  justify-self: end;
+  align-self: flex-end;
+  background-color: lightgray;
+  border: 0;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.text {
+  font-weight: bold;
+  font-size: 16px;
+  justify-self: center;
+}
+
+.rating-div{
+  display: flex;
+  flex-direction: row;
+}
+
+.rating-button{
+  background-color: lightgray;
+  height: 30px;
+  width: 30px;
+  margin: 0px;
+  border: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 0px;
+  font-weight: bold;
+}
+
+.rating-button:hover{
+  background-color: gray;
+  color: white;
+}
+
+.first {
+  border-left: 1px solid black;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.last {
+  border-left: 0px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.text-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.small-text{
+  font-size: 12px;
+  color: gray;
+  font-weight: 400;
+
+}
+
+.start{
+  justify-self: start;
+  align-self: flex-start;
+  margin-left: 10px;
+}
+
+.end{
+  justify-self: end;
+  align-self: flex-end;
+  margin-right: 10px;
+}
+
+.thank-you{
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 250px;
+  background-color: lightgray;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  position:absolute; 
+  left:40%;
+  bottom:10px;
+}
+
+.logo {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.thank-you-text {
+  font-weight: bold;
+}
+
+.form {
+  position:absolute; 
+  left:40%;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 300px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.form-header {
+  width: 100%;
+  background-color: black;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.cancel-form{
+  justify-self: end;
+  align-self: flex-end;
+  background-color: black;
+  color: white;
+  border: 0;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.form-header-text {
+  text-align: center;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.submit {
+  justify-self: end;
+  align-self: flex-end;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  border: 0px;
+  border-radius: 5px;
+  margin: 10px
+}
+
+.form-holder{
+  min-width: 100%;
+  max-width: 100%;
+  align-items: flex-start;
+  justify-content: start;
+  padding: 0px;
+}
+
+.form-title {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.text-form {
+  vertical-align: text-top;
+  width: 95%;
+  box-sizing: border-box;
+  background-color: white;
+  border: 0px;
+  border-radius: 5px;
+  height: 100px;
+  padding: 0px;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.email-form {
+  vertical-align: text-top;
+  width: 95%;
+  box-sizing: border-box;
+  background-color: white;
+  border: 0px;
+  border-radius: 5px;
+  height: 50px;
+  padding: 0px;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.text-form::placeholder {
+  padding-top: 0px;
+  padding-left: 10px;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.email-form::placeholder {
+  padding-top: 0px;
+  padding-left: 10px;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.slider{
+  width: 95% !important;
+  margin-left: 10px;
+}
+
+.error{
+  border: 1px solid red;
+}
+
+.error-text{
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.thank-you-final{
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 250px;
+  background-color: lightgray;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  position:absolute; 
+  left:40%;
+  bottom:10px;
+}
+
+.thank-you-text-final {
+  margin-top: 0;
+}
