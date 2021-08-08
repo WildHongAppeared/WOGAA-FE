@@ -2,9 +2,9 @@ import React from 'react'
 import Slider from '@material-ui/core/Slider'
 import './App.css'
 import logo from './smiley.png';
+import { postRating, getFormInputs, postReview } from './api'
 
 
-const API_URL = process.env.REACT_APP_API_URL
 const initialState = {
   showButton: false, //flag to show Help us improve button 
   showRating: false, //flag to show rating scale
@@ -28,22 +28,14 @@ class App extends React.Component {
 
 
   async componentDidMount() { //retrieve feedback form fields during initial load
-    let res = await fetch(API_URL + 'form/list')
-    let formInputs = await res.json()
+    let formInputs = await getFormInputs()
     let filledFormInputs = {}
     formInputs.forEach((input) => filledFormInputs[input.id] = '')
     this.setState({ formInputs, filledFormInputs})
   }
 
   async setRating(rating){ //after selecting rating, send to API and keep track of created id for feedback form
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ rating })
-    }
-    fetch(API_URL + 'rating/create', requestOptions)
-    .then(response => response.json())
-    .then(data => {
+    postRating(rating).then(data => {
         this.setState({ selectedRating: rating, showThankYou: true, showRating: false, showButton: false, showSmiley: false, createdRatingId: data.id }, () => {  
           setTimeout(() => {
              this.setState({ showForm: true, showThankYou: false });
@@ -99,7 +91,7 @@ class App extends React.Component {
   }
 
   handleEmailChange(e, formId){ //handle email with regex to check if its valid email format and show error if not
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; //regex to check email
     let filledFormInputs = this.state.filledFormInputs
     filledFormInputs[formId] = e.target.value
     if ( re.test(e.target.value) ) {
@@ -152,13 +144,7 @@ class App extends React.Component {
     for (const [key, value] of Object.entries(filledFormInputs)) {
       processedInput.push({ formInputId: key, remark: value })
     }
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(processedInput)
-    }
-    fetch(API_URL + `rating/${this.state.createdRatingId}/review`, requestOptions)
-    .then(response => response.json())
+    postReview(this.state.createdRatingId, processedInput)
     .then(data => {
       this.setState({ showForm: false, showFinalThankYou: true }, () => {  
         setTimeout(() => {
