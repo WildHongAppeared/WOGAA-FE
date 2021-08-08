@@ -36,7 +36,6 @@ class App extends React.Component {
   }
 
   async setRating(rating){ //after selecting rating, send to API and keep track of created id for feedback form
-    console.log('@RATING - ', rating)
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
