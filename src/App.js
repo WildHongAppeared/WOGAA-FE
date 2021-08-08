@@ -106,15 +106,16 @@ class App extends React.Component {
     const filledFormInputs = this.state.filledFormInputs
     switch(form.type){
       case 'text':
-        inputType.push(<textarea className='text-form' type='text' placeholder={form.subtitle} value={filledFormInputs[form.id]} onChange={(e) => this.handleTextChange(e, form.id)}></textarea>)
+        inputType.push(<textarea key={form.id + 'text'} className='text-form' type='text' placeholder={form.subtitle} value={filledFormInputs[form.id]} onChange={(e) => this.handleTextChange(e, form.id)}></textarea>)
         break;
       case 'email':
         if(this.state.invalidEmail)
-        inputType.push(<p className='error-text'>Please enter a valid email</p>)
-        inputType.push(<textarea className={`email-form ${this.state.invalidEmail ? 'error': null }`} id={form.id} type="email" placeholder={form.subtitle} value={filledFormInputs[form.id]} onChange={(e) => this.handleEmailChange(e, form.id)}></textarea>)
+        inputType.push(<p key={form.id + 'error'} className='error-text'>Please enter a valid email</p>)
+        inputType.push(<textarea key={form.id + 'email'} className={`email-form ${this.state.invalidEmail ? 'error': null }`} id={form.id} type="email" placeholder={form.subtitle} value={filledFormInputs[form.id]} onChange={(e) => this.handleEmailChange(e, form.id)}></textarea>)
         break;
       case 'linear_scale':
         inputType.push(<Slider
+            key={form.id + 'slider'}
             value={filledFormInputs[form.id]}
             className="slider"
             max={100}
@@ -128,7 +129,7 @@ class App extends React.Component {
     }
     return (
       <div className="form-holder" key={form.id}>
-        <p className="form-title">{form.title}</p>
+        <p key={form.id + 'title'} className="form-title">{form.title}</p>
         {inputType}
       </div>
     )
